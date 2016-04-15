@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{430D0C67-11ED-490B-8E7D-73F6B108DD9C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScriptRunner_Sharp</RootNamespace>
+    <AssemblyName>ScriptRunner_Sharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="builder\BuilderManifestEntry.cs" />
+    <Compile Include="builder\ConfigFileEntry.cs" />
+    <Compile Include="builder\ConfigFileParser.cs" />
+    <Compile Include="builder\ManifestBuilder.cs" />
+    <Compile Include="builder\ManifestSerialiser.cs" />
+    <Compile Include="CommandLineOption.cs" />
+    <Compile Include="CommandLineWrapper.cs" />
+    <Compile Include="database\DatabaseConnection.cs" />
+    <Compile Include="database\NoExecPatchRunController.cs" />
+    <Compile Include="database\NoExecPromotionController.cs" />
+    <Compile Include="database\PatchRunController.cs" />
+    <Compile Include="database\PromotionController.cs" />
+    <Compile Include="database\sql\SQLManager.cs" />
+    <Compile Include="database\UnloggedPatchRunController.cs" />
+    <Compile Include="ex\ExFatalError.cs" />
+    <Compile Include="ex\ExInstaller.cs" />
+    <Compile Include="ex\ExInternal.cs" />
+    <Compile Include="ex\ExLoader.cs" />
+    <Compile Include="ex\ExManifest.cs" />
+    <Compile Include="ex\ExManifestBuilder.cs" />
+    <Compile Include="ex\ExParser.cs" />
+    <Compile Include="ex\ExPromote.cs" />
+    <Compile Include="ex\ExRoot.cs" />
+    <Compile Include="ex\ExRuntimeRoot.cs" />
+    <Compile Include="ex\ExUpdater.cs" />
+    <Compile Include="FileResolver.cs" />
+    <Compile Include="install\Installer.cs" />
+    <Compile Include="loader\BuiltInLoader.cs" />
+    <Compile Include="loader\DatabaseSourceLoader.cs" />
+    <Compile Include="loader\Loader.cs" />
+    <Compile Include="loader\MetadataLoader.cs" />
+    <Compile Include="loader\PatchScriptLoader.cs" />
+    <Compile Include="loader\SourceLoader.cs" />
+    <Compile Include="loader\UtilLoader.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="ManifestEntry.cs" />
+    <Compile Include="ManifestParser.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="PatchScript.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="PromotionFile.cs" />
+    <Compile Include="PromotionManifestParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScriptBuilder.cs" />
+    <Compile Include="ScriptRunner.cs" />
+    <Compile Include="script\parser\EscapedTextSegment.cs" />
+    <Compile Include="script\parser\ParsedStatement.cs" />
+    <Compile Include="script\parser\ScriptParser.cs" />
+    <Compile Include="script\parser\ScriptSegment.cs" />
+    <Compile Include="script\parser\StatementDelimiterSegment.cs" />
+    <Compile Include="script\parser\UnescapedTextSegment.cs" />
+    <Compile Include="script\ScriptCommit.cs" />
+    <Compile Include="script\ScriptConnect.cs" />
+    <Compile Include="script\ScriptDisconnect.cs" />
+    <Compile Include="script\ScriptExecutable.cs" />
+    <Compile Include="script\ScriptExecutableParser.cs" />
+    <Compile Include="script\ScriptSQL.cs" />
+    <Compile Include="update\Updater.cs" />
+    <Compile Include="util\ArchiveUtil.cs" />
+    <Compile Include="util\HashUtil.cs" />
+    <Compile Include="util\ScriptRunnerVersion.cs" />
+    <Compile Include="util\XFUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\ScriptRunner_Sharp.exe.config" />
+    <None Include="bin\Debug\ScriptRunner_Sharp.vshost.exe.config" />
+    <None Include="bin\Debug\ScriptRunner_Sharp.vshost.exe.manifest" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="util\version.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ScriptRunner_Sharp.vshost.exe" />
+    <Content Include="database\sql\InsertPatchRun.sql" />
+    <Content Include="database\sql\InsertPatchRunStatement.sql" />
+    <Content Include="database\sql\InsertPromotionFile.sql" />
+    <Content Include="database\sql\InsertPromotionRun.sql" />
+    <Content Include="database\sql\ScriptRunnerVersionCheck.sql" />
+    <Content Include="database\sql\SelectPatchRunCount.sql" />
+    <Content Include="database\sql\SelectPatchRunStatementCount.sql" />
+    <Content Include="database\sql\SelectPromotionFileCount.sql" />
+    <Content Include="database\sql\SelectPromotionRunCount.sql" />
+    <Content Include="database\sql\UpdatePatchRun.sql" />
+    <Content Include="database\sql\UpdatePatchRunStatement.sql" />
+    <Content Include="database\sql\UpdatePromotionFile.sql" />
+    <Content Include="database\sql\UpdatePromotionRun.sql" />
+    <Content Include="install\create_objects.sql" />
+    <Content Include="install\create_user.sql" />
+    <Content Include="install\migrate_patches.sql" />
+    <Content Include="install\set_permissions.sql" />
+    <Content Include="obj\Debug\ScriptRunner_Sharp.csproj.FileListAbsolute.txt" />
+    <Content Include="update\PATCHSCRIPTRUNNER000010 %28add file_index column to promotion_files table%29.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
