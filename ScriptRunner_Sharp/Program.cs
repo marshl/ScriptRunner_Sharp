@@ -20,7 +20,7 @@ namespace ScriptRunner_Sharp
 
                 CommandLineWrapper.printHelp();
 
-                System.exit(1);
+                Environment.Exit(1);
             }
 
             //Set up logging
@@ -44,7 +44,7 @@ namespace ScriptRunner_Sharp
             {
                 Console.Error.WriteLine("ScriptRunner failed to initialise log file:");
                 Console.Error.WriteLine(e.getMessage());
-                System.exit(1);
+                Environment.Exit(1);
             }
 
             //Set up the logger
@@ -127,7 +127,7 @@ namespace ScriptRunner_Sharp
             }
 
             //Exit with the correct code
-            System.exit(lError ? 1 : 0);
+            Environment.Exit(lError ? 1 : 0);
         }
     }
 }
