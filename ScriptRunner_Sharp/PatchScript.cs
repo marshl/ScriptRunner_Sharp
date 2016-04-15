@@ -82,13 +82,13 @@ public class PatchScript {
       }
       catch (IOException e) {
         System.out.println("ERROR: Could not read PatchScript file");
-        System.out.println("Reason (see log for details): " + e.getMessage());
+        System.out.println("Reason (see log for details): " + e.Message);
         Logger.logError(e);
         lSuccess  = false;
       }
       catch (ExParser e) {
         System.out.println("ERROR: PATCHSCRIPT COULD NOT BE PARSED");
-        System.out.println("Reason (see log for details): " + e.getMessage());
+        System.out.println("Reason (see log for details): " + e.Message);
         Logger.logError(e);
         lSuccess = false;
       }

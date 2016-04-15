@@ -77,7 +77,7 @@ public class Installer {
       lDatabaseConnection = DatabaseConnection.createConnection(mCommandLineWrapper, true, false, false);
     }
     catch (ExPromote e) {
-      throw new ExInstaller("Failed to connect to database: " + e.getMessage(), e);
+      throw new ExInstaller("Failed to connect to database: " + e.Message, e);
     }
     
     //Prompt user for promote user name
@@ -111,7 +111,7 @@ public class Installer {
       lDatabaseConnection = DatabaseConnection.createConnection(mCommandLineWrapper, false, true, false);
     }
     catch (ExPromote e) {
-      throw new ExInstaller("Failed to connect to database: " + e.getMessage(), e);
+      throw new ExInstaller("Failed to connect to database: " + e.Message, e);
     }
 
     Logger.logAndEcho("Creating database objects..."); 
@@ -194,7 +194,7 @@ public class Installer {
       lCreateUserStatement.close();
     }
     catch (SQLException e) {
-      throw new ExInstaller("Failed to create " + pPromoteUserName + " user: " + e.getMessage(), e);
+      throw new ExInstaller("Failed to create " + pPromoteUserName + " user: " + e.Message, e);
     } 
     
     return lPassword;
@@ -237,7 +237,7 @@ public class Installer {
       lPatchScriptLoader.forceUnloggedRunPatchScript(pDatabaseConnection, lInstallPatchScript);
     }
     catch (ExPromote e) {
-      throw new ExInstaller("Failed to install ScriptRunner: " + e.getMessage(), e);
+      throw new ExInstaller("Failed to install ScriptRunner: " + e.Message, e);
     }
     
     return lInstallPatchScript;

@@ -88,7 +88,7 @@ public class ScriptRunnerVersion {
       return SQLManager.queryScalarInt(pConnection, SQLManager.SQL_FILE_VERSION_CHECK, Installer.INSTALL_PATCH_PREFIX);
     }
     catch (SQLException e) {
-      throw new ExFatalError("Error getting latest update patch number: " + e.getMessage(), e);
+      throw new ExFatalError("Error getting latest update patch number: " + e.Message, e);
     }
   }
   

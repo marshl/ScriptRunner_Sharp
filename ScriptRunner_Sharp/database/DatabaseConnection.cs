@@ -167,7 +167,7 @@ public class DatabaseConnection {
       lPromoteConnection = createOracleConnection(lConnectionString, lPromoteUser, lPassword, pConnectAsSysDBA);      
     }
     catch (SQLException e) {
-      throw new ExPromote("Error establishing database connection (promotion connection): " + e.getMessage(), e);
+      throw new ExPromote("Error establishing database connection (promotion connection): " + e.Message, e);
     }
     
     OracleConnection lLoggingConnection = null;
@@ -177,7 +177,7 @@ public class DatabaseConnection {
         lLoggingConnection = createOracleConnection(lConnectionString, lPromoteUser, lPassword, false);        
       }
       catch (SQLException e) { 
-        throw new ExPromote("Error establishing database connection (logging connection): " + e.getMessage(), e);
+        throw new ExPromote("Error establishing database connection (logging connection): " + e.Message, e);
       }
     }
     
@@ -353,7 +353,7 @@ public class DatabaseConnection {
       getPromoteConnection().rollback();
     }
     catch (SQLException e) {
-      Logger.logWarning("Error rolling back promotion connection: " + e.getMessage());
+      Logger.logWarning("Error rolling back promotion connection: " + e.Message);
     }
   }
   

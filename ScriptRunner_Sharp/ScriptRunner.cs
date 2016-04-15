@@ -232,10 +232,10 @@ implements FileResolver {
       throw new ExFatalError("Failed to parse manifest: IOException", e);
     }
     catch (ExParser e) {
-      throw new ExFatalError("Failed to parse manifest: " + e.getMessage(), e);
+      throw new ExFatalError("Failed to parse manifest: " + e.Message, e);
     }
     catch (ExManifest e) {
-      throw new ExFatalError("Failed to load manifest: " + e.getMessage(), e);
+      throw new ExFatalError("Failed to load manifest: " + e.Message, e);
     }
 
     //Verify the manifest
@@ -244,7 +244,7 @@ implements FileResolver {
       lParser.verifyManifest(this);
     }
     catch (ExManifest e) {
-      throw new ExFatalError("Manifest verification failed: " + e.getMessage(), e);
+      throw new ExFatalError("Manifest verification failed: " + e.Message, e);
     }
     
     Logger.logInfo("Manifest parsed and verified successfully");
@@ -287,7 +287,7 @@ implements FileResolver {
           lScriptNumberMap.put(lScript.getPatchLabel(), lScript.getPatchNumber());
         }
         catch (ExParser e){
-          throw new ExFatalError("Could not parse patch " + lPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+          throw new ExFatalError("Could not parse patch " + lPromotionFile.getFilePath() + ": " + e.Message, e);
         }
         catch (IOException e){
           throw new ExFatalError("Could not parse patch " + lPromotionFile.getFilePath(), e);
@@ -370,7 +370,7 @@ implements FileResolver {
             ((MetadataLoader) lLoader).validateForFile(this, lFile);
           }
           catch (ExPromote e) {
-            throw new ExFatalError("Loader validation failed: " + e.getMessage() , e);
+            throw new ExFatalError("Loader validation failed: " + e.Message , e);
           }
         }
       }
@@ -416,12 +416,12 @@ implements FileResolver {
     catch(ExPromote e){      
       //Message should contain enough context, just re-raise      
       lSuccess = false;
-      lError = new ExFatalError("Promotion failed: " + e.getMessage(), e);     
+      lError = new ExFatalError("Promotion failed: " + e.Message, e);     
       throw lError;
     }
     catch(Throwable th){
       lSuccess = false;
-      lError = new ExFatalError("Unexpected error: " + th.getMessage(), th);
+      lError = new ExFatalError("Unexpected error: " + th.Message, th);
       throw lError;
     }
     finally {
@@ -439,7 +439,7 @@ implements FileResolver {
       catch(Throwable th){
         //Do not allow logging exceptions to take precedence over the original error if there was one
         if(lError != null){
-          Logger.logInfo("Error encountered when finalising log row:\n" + th.getMessage());
+          Logger.logInfo("Error encountered when finalising log row:\n" + th.Message);
         }
         else {
           //If the promote succeeded but logging failed, tell the user
@@ -454,7 +454,7 @@ implements FileResolver {
     }
     catch (Throwable th){
       //Suppress errors caused by closing the connection
-      Logger.logWarning("Failed to close connection: " + th.getMessage());
+      Logger.logWarning("Failed to close connection: " + th.Message);
     }
     
     return lSuccess;
@@ -523,7 +523,7 @@ implements FileResolver {
         FileUtils.deleteDirectory(mBaseDirectory);
       }
       catch (IOException e) {
-        Logger.logDebug("Failed when removing temporary directory: " + e.getMessage());
+        Logger.logDebug("Failed when removing temporary directory: " + e.Message);
       }
     }
   }

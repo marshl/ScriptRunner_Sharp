@@ -62,7 +62,7 @@ extends BuiltInLoader{
             throw new ExFatalError("Unexpected error finalising promotion log for file " + pPromotionFile.getFilePath(), th);
           }
           else {
-            Logger.logInfo("Unexpected error finalising promotion log for file " + pPromotionFile.getFilePath() + ": " + th.getMessage());
+            Logger.logInfo("Unexpected error finalising promotion log for file " + pPromotionFile.getFilePath() + ": " + th.Message);
           }          
         }
       }      

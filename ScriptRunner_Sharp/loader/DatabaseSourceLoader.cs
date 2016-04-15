@@ -45,7 +45,7 @@ extends SourceLoader {
       lExecutableList = ScriptExecutableParser.parseScriptExecutables(lFileContents, false);
     }
     catch (ExParser e) {
-      throw new ExFatalError("Failed to read contents of file " + pFile.getFilePath() + ": " + e.getMessage(), e);
+      throw new ExFatalError("Failed to read contents of file " + pFile.getFilePath() + ": " + e.Message, e);
     }
     
     Logger.logDebug("Validating source file");
@@ -64,7 +64,7 @@ extends SourceLoader {
       }
     }
     catch (Throwable th){      
-      throw new ExPromote("Failed to promote DatabaseSource " + pFile.getFilePath() + ": " + th.getMessage(), th);
+      throw new ExPromote("Failed to promote DatabaseSource " + pFile.getFilePath() + ": " + th.Message, th);
     }
     long lTime = System.currentTimeMillis() - lStart;
     Logger.logInfo("OK (took " + lTime + "ms)");

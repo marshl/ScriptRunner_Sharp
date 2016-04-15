@@ -127,7 +127,7 @@ public class Updater {
       lDatabaseConnection = DatabaseConnection.createConnection(mCommandLineWrapper, false, true, false);
     }
     catch (ExPromote e) {
-      throw new ExUpdater("Failed to connect to database: " + e.getMessage(), e);
+      throw new ExUpdater("Failed to connect to database: " + e.Message, e);
     }
     
     List<PatchScript> lUpdatePatchList = getUpdatePatches();
@@ -153,7 +153,7 @@ public class Updater {
           disableDDLTrigger(lDatabaseConnection.getPromoteConnection());
         }
         catch (SQLException e) {
-          throw new ExUpdater("Failed to disable DDL trigger: " + e.getMessage(), e);      
+          throw new ExUpdater("Failed to disable DDL trigger: " + e.Message, e);      
         }
         
         //Run all update scripts in order    
@@ -164,7 +164,7 @@ public class Updater {
             new PatchScriptLoader().forceUnloggedRunPatchScript(lDatabaseConnection, lUpdatePatch);
           }
           catch (ExPromote e) {
-            throw new ExUpdater("Failed to update due to patch failure: " + e.getMessage(), e);      
+            throw new ExUpdater("Failed to update due to patch failure: " + e.Message, e);      
           }
         }
       }      
@@ -193,7 +193,7 @@ public class Updater {
           lPatchRunController.endPatchRun(true);        
         }
         catch (ExPromote e) {
-          throw new ExUpdater("Failed to log update for patch " + lUpdatePatch.getDisplayName() + ": " + e.getMessage(), e);
+          throw new ExUpdater("Failed to log update for patch " + lUpdatePatch.getDisplayName() + ": " + e.Message, e);
         }
       }
       

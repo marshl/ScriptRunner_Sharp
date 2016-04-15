@@ -243,7 +243,7 @@ extends SourceLoader {
       mExecutableList = ScriptExecutableParser.parseScriptExecutables(lFileContents, true);
     }
     catch (ExParser e) {
-      throw new ExFatalError("Failed to parse contents of metadata loader " + mName + ": " + e.getMessage(), e);
+      throw new ExFatalError("Failed to parse contents of metadata loader " + mName + ": " + e.Message, e);
     }
   }
   
@@ -253,7 +253,7 @@ extends SourceLoader {
         lCloseable.close();
       }
       catch (IOException e) {
-        Logger.logInfo("Failed to close input stream for file " + pPromotionFile.getFilePath() + ": " + e.getMessage());
+        Logger.logInfo("Failed to close input stream for file " + pPromotionFile.getFilePath() + ": " + e.Message);
       }
     }
   }
@@ -281,10 +281,10 @@ extends SourceLoader {
             bind(null, ((ScriptSQL) lExecutable).getBindList(), pScriptRunner, pPromotionFile, null);
           }
           catch (ExLoader e) {
-            throw new ExPromote("Validation of " + mName + " loader failed for file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+            throw new ExPromote("Validation of " + mName + " loader failed for file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
           }
           catch (SQLException e) {
-            throw new ExPromote("Validation of prepare " + mName + " loader failed for file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+            throw new ExPromote("Validation of prepare " + mName + " loader failed for file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
           }
 
         }
@@ -312,10 +312,10 @@ extends SourceLoader {
       bind(lPreparedStatement, pScriptSQL.getBindList(), pScriptRunner, pPromotionFile, pStreamsToClose);            
     }
     catch (SQLException e) {
-      throw new ExPromote("Failed to prepare " + mName + " loader for file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+      throw new ExPromote("Failed to prepare " + mName + " loader for file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
     }
     catch (ExLoader e) {
-      throw new ExPromote("Failed to prepare " + mName + " loader for file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+      throw new ExPromote("Failed to prepare " + mName + " loader for file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
     }
     return lPreparedStatement;
   }
@@ -351,7 +351,7 @@ extends SourceLoader {
             lPreparedStatement.close();
           }
           catch (SQLException e) {
-            throw new ExPromote("Failed to load file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+            throw new ExPromote("Failed to load file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
           }
           
         }        
@@ -362,7 +362,7 @@ extends SourceLoader {
             lExecutable.execute(pScriptRunner.getDatabaseConnection());
           }
           catch (SQLException e) {
-            throw new ExPromote("Failed to load file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+            throw new ExPromote("Failed to load file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
           }
         }
         
@@ -383,7 +383,7 @@ extends SourceLoader {
           lConn.commit();
         }
         catch (SQLException e) {
-          throw new ExPromote("Failed to commit file " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+          throw new ExPromote("Failed to commit file " + pPromotionFile.getFilePath() + ": " + e.Message, e);
         }
       }
       else {
@@ -407,7 +407,7 @@ extends SourceLoader {
         pScriptRunner.getDatabaseConnection().disconnectProxyUser();
       }
       catch (SQLException e) {
-        Logger.logWarning("Failed to disconnect proxy user after promoting file " + pPromotionFile.getFilePath() + ": " + e.getMessage());
+        Logger.logWarning("Failed to disconnect proxy user after promoting file " + pPromotionFile.getFilePath() + ": " + e.Message);
         Logger.logError(e);
       }
     }

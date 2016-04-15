@@ -48,7 +48,7 @@ extends BuiltInLoader {
       throw new ExFatalError("Failed to read Patch " + pPromotionFile.getFilePath(), e);
     }
     catch (ExParser e) {
-      throw new ExFatalError("Failed to parse Patch " + pPromotionFile.getFilePath() + ": " + e.getMessage(), e);
+      throw new ExFatalError("Failed to parse Patch " + pPromotionFile.getFilePath() + ": " + e.Message, e);
     }
     
     runPatchScriptInternal(pScriptRunner, pScriptRunner.getDatabaseConnection(), lPatchScript, false);
@@ -128,7 +128,7 @@ extends BuiltInLoader {
               lError = (ExPromote) th;
             }
             else {
-              lError = new ExPromote("Error executing patch " + pPatchScript.getDisplayName() + ": " + th.getMessage(), th);
+              lError = new ExPromote("Error executing patch " + pPatchScript.getDisplayName() + ": " + th.Message, th);
               Logger.logError(lError);
             }
             throw lError;
@@ -158,11 +158,11 @@ extends BuiltInLoader {
         }
         catch (Throwable th) {
           if(lPatchSuccess){
-            throw new ExFatalError("Failed to end patch run for patch " + pPatchScript.getDisplayName() + ": " + th.getMessage(), th);
+            throw new ExFatalError("Failed to end patch run for patch " + pPatchScript.getDisplayName() + ": " + th.Message, th);
           }
           else {
             //Don't suppress the original exception with a new exception
-            Logger.logInfo("Failed to end patch run for patch " + pPatchScript.getDisplayName() + ": " + th.getMessage());
+            Logger.logInfo("Failed to end patch run for patch " + pPatchScript.getDisplayName() + ": " + th.Message);
           }
         }
       }
@@ -204,7 +204,7 @@ extends BuiltInLoader {
       catch(Throwable th){
         lSuccess = false;
         Logger.logInfo("SERIOUS ERROR! HALTING PATCH EXECUTION");
-        ExPromote lError = new ExPromote("Error executing patch " + pPatchScript.getDisplayName() + ": " + th.getMessage(), th);
+        ExPromote lError = new ExPromote("Error executing patch " + pPatchScript.getDisplayName() + ": " + th.Message, th);
         Logger.logError(lError);
         throw lError;
       }
@@ -218,7 +218,7 @@ extends BuiltInLoader {
             throw new ExFatalError("Error logging patch statement result", th);
           }
           else {
-            Logger.logInfo("Failed to log patch statement failure: " + th.getMessage());
+            Logger.logInfo("Failed to log patch statement failure: " + th.Message);
           }
         }
       }
