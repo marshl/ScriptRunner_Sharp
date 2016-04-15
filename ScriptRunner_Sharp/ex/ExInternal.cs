@@ -1,24 +1,25 @@
-package com.fivium.scriptrunner2.ex;
+using System;
 
 /**
  * Exception class for errors which have been caused by internal assertion failures or programming errors.
  */
-public class ExInternal
-extends ExRuntimeRoot {
-  
-  public ExInternal(Throwable pThrowable) {
-    super(pThrowable);
-  }
+namespace ScriptRunner_Sharp
+{
+    public class ExInternal : Exception
+    {
+        public ExInternal(String pString, Exception pThrowable) : base(pString, pThrowable)
+        {
 
-  public ExInternal(String pString, Throwable pThrowable) {
-    super(pString, pThrowable);
-  }
+        }
 
-  public ExInternal(String pString) {
-    super(pString);
-  }
+        public ExInternal(String pString) : base(pString)
+        {
 
-  public ExInternal() {
-    super();
-  }
+        }
+
+        public ExInternal() : base()
+        {
+        }
+    }
+
 }
