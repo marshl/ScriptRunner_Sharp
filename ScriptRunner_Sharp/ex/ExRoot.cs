@@ -1,33 +1,34 @@
-package com.fivium.scriptrunner2.ex;
 
-/**
- * Root exception class for checked exceptions.
- */
-public class ExRoot 
-extends Exception {
-  
-  private void logThis(){
-//    Logger.logInfo("ERROR:::");
-//    Logger.logError(this);
-  }
-  
-  public ExRoot(Throwable pThrowable) {    
-    super(pThrowable);
-    logThis();
-  }
+using System;
 
-  public ExRoot(String pString, Throwable pThrowable) {
-    super(pString, pThrowable);
-    logThis();
-  }
+namespace ScriptRunner_Sharp
+{
+    /**
+     * Root exception class for checked exceptions.
+     */
+    public class ExRoot : Exception
+    {
 
-  public ExRoot(String pString) {
-    super(pString);
-    logThis();
-  }
+        private void logThis()
+        {
+            //    Logger.logInfo("ERROR:::");
+            //    Logger.logError(this);
+        }
 
-  public ExRoot() {
-    super();
-    logThis();
-  }
+        public ExRoot(string pString, Exception pThrowable) : base(pString, pThrowable)
+        {
+
+            logThis();
+        }
+
+        public ExRoot(string pString) : base(pString)
+        {
+            logThis();
+        }
+
+        public ExRoot() : base()
+        {
+            logThis();
+        }
+    }
 }

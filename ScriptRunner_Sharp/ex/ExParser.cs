@@ -1,24 +1,25 @@
-package com.fivium.scriptrunner2.ex;
 
-/**
- * Exception class for any errors caused by text file parsing.
- */
-public class ExParser 
-extends ExRoot {
-  
-  public ExParser() {
-    super();
-  }
 
-  public ExParser(String pString) {
-    super(pString);
-  }
+namespace ScriptRunner_Sharp
+{
+    using System;
+    /**
+     * Exception class for any errors caused by text file parsing.
+     */
+    public class ExParser : ExRoot {
 
-  public ExParser(String pString, Throwable pThrowable) {
-    super(pString, pThrowable);
-  }
+        public ExParser() : base() {
+        }
+        
+        public ExParser(String pString, Exception pThrowable)
+        {
+            
+        }
 
-  public ExParser(Throwable pThrowable) {
-    super(pThrowable);
-  }
+        public ExParser(string pString) : base(pString)
+        {
+
+        }
+    }
+
 }
