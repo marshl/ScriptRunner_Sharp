@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Options, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Options.4.4.0.0\lib\net4-client\Mono.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,9 +88,6 @@
     <Compile Include="Logger.cs" />
     <Compile Include="ManifestEntry.cs" />
     <Compile Include="ManifestParser.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="PatchScript.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PromotionFile.cs" />
@@ -113,7 +118,7 @@
     <None Include="bin\Debug\ScriptRunner_Sharp.exe.config" />
     <None Include="bin\Debug\ScriptRunner_Sharp.vshost.exe.config" />
     <None Include="bin\Debug\ScriptRunner_Sharp.vshost.exe.manifest" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
     <None Include="util\version.properties" />
   </ItemGroup>
   <ItemGroup>
@@ -135,12 +140,9 @@
     <Content Include="install\create_user.sql" />
     <Content Include="install\migrate_patches.sql" />
     <Content Include="install\set_permissions.sql" />
-    <Content Include="obj\Debug\ScriptRunner_Sharp.csproj.FileListAbsolute.txt" />
     <Content Include="update\PATCHSCRIPTRUNNER000010 %28add file_index column to promotion_files table%29.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
