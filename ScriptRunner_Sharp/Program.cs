@@ -30,19 +30,19 @@
             //Set up logging
             try
             {
-                File lLogDir;
-                if (commandLineOptions.hasOption(CommandLineOption.LOG_DIRECTORY))
+                DirectoryInfo logDirectory;
+                if (!string.IsNullOrEmpty(commandLineOptions.LogDirectory))
                 {
-                    lLogDir = new File(commandLineOptions.getOption(CommandLineOption.LOG_DIRECTORY));
+                    logDirectory = new DirectoryInfo(commandLineOptions.LogDirectory);
                 }
                 else
                 {
                     //Default the log directory to the current working directory
-                    lLogDir = new File(System.getProperty("user.dir"));
+                    logDirectory = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
                 }
 
                 //Create a log file in the specified directory and set it up for writing
-                Logger.initialiseLogFile(lLogDir);
+                Logger.InitialiseLogFile(logDirectory);
             }
             catch (IOException e)
             {
@@ -52,12 +52,12 @@
             }
 
             //Set up the logger
-            if (commandLineOptions.hasOption(CommandLineOption.LOG_STANDARD_OUT))
+            if (commandLineOptions.LogStdOut)
             {
                 Logger.logToStandardOut();
             }
 
-            if (commandLineOptions.hasOption(CommandLineOption.LOG_DEBUG))
+            if (commandLineOptions.LogDebug)
             {
                 Logger.enableDebugLogging();
             }
