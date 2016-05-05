@@ -1,24 +1,23 @@
-package com.fivium.scriptrunner2.ex;
+using System;
 
-/**
- * Exception class for any errors encountered when parsing a manifest file.
- */
-public class ExManifest
-extends ExRoot {
-  
-  public ExManifest(Throwable pThrowable) {
-    super(pThrowable);
-  }
+namespace ScriptRunner_Sharp
+{
 
-  public ExManifest(String pString, Throwable pThrowable) {
-    super(pString, pThrowable);
-  }
+    /**
+     * Exception class for any errors encountered when parsing a manifest file.
+     */
+    public class ExManifest : Exception
+    {
+        public ExManifest(string pString, Exception pThrowable) : base(pString, pThrowable)
+        {
+        }
 
-  public ExManifest(String pString) {
-    super(pString);
-  }
+        public ExManifest(string pString) : base(pString)
+        {
+        }
 
-  public ExManifest() {
-    super();
-  }
+        public ExManifest() : base()
+        {
+        }
+    }
 }
