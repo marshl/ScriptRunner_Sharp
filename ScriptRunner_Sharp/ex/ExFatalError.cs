@@ -1,24 +1,22 @@
-package com.fivium.scriptrunner2.ex;
+using System;
 
-/**
- * General exception class for fatal errors which are caused by user input but are not expected to be handled.
- */
-public class ExFatalError 
-extends ExRuntimeRoot {
-  
-  public ExFatalError(Throwable pThrowable) {
-    super(pThrowable);
-  }
+namespace ScriptRunner_Sharp
+{
+    /**
+     * General exception class for fatal errors which are caused by user input but are not expected to be handled.
+     */
+    public class ExFatalError : ExRuntimeRoot
+    {
+        public ExFatalError(String pString, Exception pThrowable) : base(pString, pThrowable)
+        {
+        }
 
-  public ExFatalError(String pString, Throwable pThrowable) {
-    super(pString, pThrowable);
-  }
+        public ExFatalError(String pString) : base(pString)
+        {
+        }
 
-  public ExFatalError(String pString) {
-    super(pString);
-  }
-
-  public ExFatalError() {
-    super();
-  }
+        public ExFatalError() : base()
+        {
+        }
+    }
 }
