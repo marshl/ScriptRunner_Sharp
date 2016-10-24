@@ -20,7 +20,7 @@ namespace ScriptRunner_Sharp
          * Gets the base directory which relative paths will be evaluated from.
          * @return Base directory.
          */
-        FileInfo getBaseDirectory();
+        DirectoryInfo getBaseDirectory();
 
         /**
          * Relativises the path of the given file using a base directory and returns the path string.

@@ -65,10 +65,10 @@
             Logger.logAndEcho(ScriptRunnerVersion.getVersionString());
 
             //Main branch - call the relevant subprocess based on supplied arguments    
-            boolean lError = false;
+            bool lError = false;
             try
             {
-                if (commandLineOptions.hasOption(CommandLineOption.RUN))
+                if (commandLineOptions.RunDirectory != null)
                 {
                     ScriptRunner.run(commandLineOptions);
                     if (commandLineOptions.hasOption(CommandLineOption.NO_EXEC))

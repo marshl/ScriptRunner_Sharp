@@ -25,7 +25,7 @@ import java.io.IOException;
  * failed, i.e. only unexecuted statements are executed on the second run. This loader object handles all of these use cases.
  */
 public class PatchScriptLoader 
-extends BuiltInLoader {  
+: BuiltInLoader {  
   
   /**
    * Directly runs a PatchScript from a file. Patches should be pre-parsed before running to assert there are no
